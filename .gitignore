@@ -59,3 +59,8 @@ typings/
 
 # next.js build output
 .next
+
+# node modules to ignore (according to gtbc hw instructions)
+node_modules
+.DS_Store
+.env
