@@ -10,7 +10,7 @@ const axios = require("axios");
 require("dotenv").config();
 
 // Require Spotify
-require("node-spotify-api");
+var Spotify = require('node-spotify-api');
 
 //Require spotify keys
 var spotify = new Spotify(keys.spotify);
@@ -34,18 +34,18 @@ console.log("___________________________________________________________________
 
 // function liri_O() {
 if (process.argv[2] === "movie-this") {
-    
+
 
     // Grab or assemble the movie name and store it in a variable called "movieName"
     var movieName = process.argv[3];
     // ...
     // Then run a request with axios to the OMDB API with the movie specified
-    var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+    var movieUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
     // This line is just to help us debug against the actual URL.
-    console.log(queryUrl);
+    console.log(movieUrl);
 
     axios
-        .get(queryUrl)
+        .get(movieUrl)
         .then(function (response) {
             // If the axios was successful...
             // Then log the body from the site!
@@ -81,6 +81,58 @@ if (process.argv[2] === "movie-this") {
 } else if (process.argv[2] === "spotify-this-song") {
 
     console.log("this is your song... " + process.argv[3]);
+
+    var trackName = process.argv[3];
+
+    //var trackUrl = 'https://api.spotify.com/v1/search?q=' + trackName + '&type=track&market=US&limit=10&offset=5" - H "Accept: application/json" - H "Content-Type: application/json" - H "Authorization: Bearer BQB2YhCimvNBMj-1rFyaoapJ08KTr8mMc02oGzPmjf59qpqhUpdt_hbW8rAaes8GJRW1ADK5OSGixK9evVgqnHpMxvaaQfhPRnuhzGgWYyHubLiEXxmqwa_lYYsqHIJt4P0_riuDRPTPJgadPsbcm8IIOg'
+
+    //function spotify(inputs) {
+
+        var spotify = new Spotify({
+            id: keys.spotify.id,
+            secret: keys.spotify.secret
+          });
+
+          spotify.search({ type: 'track', query: trackName }, function(err, data) {
+            if (err) {
+              return console.log('Error occurred: ' + err);
+            }
+           
+          console.log(data); 
+          }
+        );
+        // .get(trackUrl)
+        // .then(function (response) {
+        //     // If the axios was successful...
+        //     // Then log the body from the site!
+        //     console.log(response.data);
+        //     //        * Title of the movie.
+        //     //        * Year the movie came out.
+        //     //        * IMDB Rating of the movie.
+        //     //        * Rotten Tomatoes Rating of the movie.
+        //     //        * Country where the movie was produced.
+        //     //        * Language of the movie.
+        //     //        * Plot of the movie.
+        //     //        * Actors in the movie.
+        // })
+        // .catch(function (error) {
+        //     if (error.response) {
+        //         // The request was made and the server responded with a status code
+        //         // that falls out of the range of 2xx
+        //         console.log(error.response.data);
+        //         console.log(error.response.status);
+        //         console.log(error.response.headers);
+        //     } else if (error.request) {
+        //         // The request was made but no response was received
+        //         // `error.request` is an object that comes back with details pertaining to the error that occurred.
+        //         console.log(error.request);
+        //     } else {
+        //         // Something happened in setting up the request that triggered an Error
+        //         console.log("Error", error.message);
+        //     }
+        //     console.log(error.config);
+        // });
+
 
 } else if (process.argv[2] === "concert-this") {
 
