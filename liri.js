@@ -1,12 +1,23 @@
 // Welcome to LIRI-O!!!
 
+// console.log the process.argv just to see what is what
 console.log(process.argv);
 
+// Include the axios npm package - install this and all other node packages this folder first
+const axios = require("axios");
+
+//Require dotenv
 require("dotenv").config();
 
+//Require spotify keys
 var keys = require("./keys.js");
 
 var spotify = new Spotify(keys.spotify);
+
+//File System Writer - Core node package for reading and writing files
+const fs = require("fs");
+
+
 
 // INSTRUCTIONS!!!
 // 9. Make it so liri.js can take in one of the following commands:
@@ -14,6 +25,65 @@ var spotify = new Spotify(keys.spotify);
 //    * `spotify-this-song`
 //    * `movie-this`
 //    * `do-what-it-says`
+
+function liri_O(){
+    if(process.argv[3]= "movie-this"){
+
+        // Grab or assemble the movie name and store it in a variable called "movieName"
+var movieName = process.argv[4];
+// ...
+// Then run a request with axios to the OMDB API with the movie specified
+var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+// This line is just to help us debug against the actual URL.
+console.log(queryUrl);
+
+axios
+  .get(queryUrl)
+  .then(function(response) {
+    // If the axios was successful...
+    // Then log the body from the site!
+    console.log(response.data);
+        //        * Title of the movie.
+        //        * Year the movie came out.
+        //        * IMDB Rating of the movie.
+        //        * Rotten Tomatoes Rating of the movie.
+        //        * Country where the movie was produced.
+        //        * Language of the movie.
+        //        * Plot of the movie.
+        //        * Actors in the movie.
+  })
+  .catch(function(error) {
+    if (error.response) {
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    } else if (error.request) {
+      // The request was made but no response was received
+      // `error.request` is an object that comes back with details pertaining to the error that occurred.
+      console.log(error.request);
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      console.log("Error", error.message);
+    }
+    console.log(error.config);
+  });
+
+} else if(process.argv[3]= "spotify-this-song"){
+
+    console.log("this is your song..." + process.argv[4]);
+
+} else if(process.argv[3]= "concert-this"){
+
+    console.log ("here is your concert..." + process.argv[4]);
+
+} else if(process.argv[3]= "do-what-it-says"){
+
+    console.log ("this is what you said..." + process.argv[4]);
+
+};
+}
 
 // ### What Each Command Should Do
 // 1. `node liri.js concert-this <artist/band name here>`
@@ -80,3 +150,26 @@ var spotify = new Spotify(keys.spotify);
 // ### Add To Your Portfolio
 // After completing the homework please add the piece to your portfolio. Make sure to add a link to your updated portfolio in the comments section of your homework so the TAs can easily ensure you completed this step when they are grading the assignment. To receive an 'A' on any assignment, you must link to it from your portfolio.
 // - - -
+
+
+
+
+// This block of code will create a file called "log.txt".
+// Next, we store the text given to us from the command line.
+var text = process.argv[2];
+
+// Next, we append the text into the "sample.txt" file.
+// If the file didn't exist, then it gets created on the fly.
+fs.appendFile("log.txt", text, function(err) {
+
+  // If an error was experienced we will log it.
+  if (err) {
+    console.log(err);
+  }
+
+  // If no error is experienced, we'll log the phrase "Content Added" to our node console.
+  else {
+    console.log("Content Added!");
+  }
+
+});
