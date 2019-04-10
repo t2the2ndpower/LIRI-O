@@ -9,10 +9,14 @@ const axios = require("axios");
 //Require dotenv
 require("dotenv").config();
 
-//Require spotify keys
-var keys = require("./keys.js");
+// // Require Spotify
+// require("node-spotify-api");
 
-var spotify = new Spotify(keys.spotify);
+// //Require spotify keys
+// var spotify = new Spotify(keys.spotify);
+// var keys = require("./keys.js");
+
+
 
 //File System Writer - Core node package for reading and writing files
 const fs = require("fs");
@@ -26,63 +30,63 @@ const fs = require("fs");
 //    * `movie-this`
 //    * `do-what-it-says`
 
-function liri_O(){
-    if(process.argv[3]= "movie-this"){
+function liri_O() {
+    if (process.argv[3] = "movie-this") {
 
         // Grab or assemble the movie name and store it in a variable called "movieName"
-var movieName = process.argv[4];
-// ...
-// Then run a request with axios to the OMDB API with the movie specified
-var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
-// This line is just to help us debug against the actual URL.
-console.log(queryUrl);
+        var movieName = process.argv[4];
+        // ...
+        // Then run a request with axios to the OMDB API with the movie specified
+        var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+        // This line is just to help us debug against the actual URL.
+        console.log(queryUrl);
 
-axios
-  .get(queryUrl)
-  .then(function(response) {
-    // If the axios was successful...
-    // Then log the body from the site!
-    console.log(response.data);
-        //        * Title of the movie.
-        //        * Year the movie came out.
-        //        * IMDB Rating of the movie.
-        //        * Rotten Tomatoes Rating of the movie.
-        //        * Country where the movie was produced.
-        //        * Language of the movie.
-        //        * Plot of the movie.
-        //        * Actors in the movie.
-  })
-  .catch(function(error) {
-    if (error.response) {
-      // The request was made and the server responded with a status code
-      // that falls out of the range of 2xx
-      console.log(error.response.data);
-      console.log(error.response.status);
-      console.log(error.response.headers);
-    } else if (error.request) {
-      // The request was made but no response was received
-      // `error.request` is an object that comes back with details pertaining to the error that occurred.
-      console.log(error.request);
-    } else {
-      // Something happened in setting up the request that triggered an Error
-      console.log("Error", error.message);
-    }
-    console.log(error.config);
-  });
+        axios
+            .get(queryUrl)
+            .then(function (response) {
+                // If the axios was successful...
+                // Then log the body from the site!
+                console.log(response.data);
+                //        * Title of the movie.
+                //        * Year the movie came out.
+                //        * IMDB Rating of the movie.
+                //        * Rotten Tomatoes Rating of the movie.
+                //        * Country where the movie was produced.
+                //        * Language of the movie.
+                //        * Plot of the movie.
+                //        * Actors in the movie.
+            })
+            .catch(function (error) {
+                if (error.response) {
+                    // The request was made and the server responded with a status code
+                    // that falls out of the range of 2xx
+                    console.log(error.response.data);
+                    console.log(error.response.status);
+                    console.log(error.response.headers);
+                } else if (error.request) {
+                    // The request was made but no response was received
+                    // `error.request` is an object that comes back with details pertaining to the error that occurred.
+                    console.log(error.request);
+                } else {
+                    // Something happened in setting up the request that triggered an Error
+                    console.log("Error", error.message);
+                }
+                console.log(error.config);
+            });
 
-} else if(process.argv[3]= "spotify-this-song"){
+    } else if (process.argv[3] = "spotify-this-song") {
 
-    console.log("this is your song..." + process.argv[4]);
+        console.log("this is your song..." + process.argv[4]);
 
-} else if(process.argv[3]= "concert-this"){
+    } else if (process.argv[3] = "concert-this") {
 
-    console.log ("here is your concert..." + process.argv[4]);
+        console.log("here is your concert..." + process.argv[4]);
 
-} else if(process.argv[3]= "do-what-it-says"){
+    } else if (process.argv[3] = "do-what-it-says") {
 
-    console.log ("this is what you said..." + process.argv[4]);
+        console.log("this is what you said..." + process.argv[4]);
 
-};
+    };
 }
 
 // ### What Each Command Should Do
@@ -160,16 +164,16 @@ var text = process.argv[2];
 
 // Next, we append the text into the "sample.txt" file.
 // If the file didn't exist, then it gets created on the fly.
-fs.appendFile("log.txt", text, function(err) {
+fs.appendFile("log.txt", text, function (err) {
 
-  // If an error was experienced we will log it.
-  if (err) {
-    console.log(err);
-  }
+    // If an error was experienced we will log it.
+    if (err) {
+        console.log(err);
+    }
 
-  // If no error is experienced, we'll log the phrase "Content Added" to our node console.
-  else {
-    console.log("Content Added!");
-  }
+    // If no error is experienced, we'll log the phrase "Content Added" to our node console.
+    else {
+        console.log("Content Added!");
+    }
 
 });
