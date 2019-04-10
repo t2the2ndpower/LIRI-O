@@ -1,7 +1,7 @@
 // Welcome to LIRI-O!!!
 
 // console.log the process.argv just to see what is what
-console.log(process.argv);
+// console.log(process.argv);
 
 // Include the axios npm package - install this and all other node packages this folder first
 const axios = require("axios");
@@ -9,12 +9,12 @@ const axios = require("axios");
 //Require dotenv
 require("dotenv").config();
 
-// // Require Spotify
-// require("node-spotify-api");
+// Require Spotify
+require("node-spotify-api");
 
-// //Require spotify keys
-// var spotify = new Spotify(keys.spotify);
-// var keys = require("./keys.js");
+//Require spotify keys
+var spotify = new Spotify(keys.spotify);
+var keys = require("./keys.js");
 
 
 
@@ -29,65 +29,71 @@ const fs = require("fs");
 //    * `spotify-this-song`
 //    * `movie-this`
 //    * `do-what-it-says`
+console.log(process.argv[2])
+console.log("__________________________________________________________________________")
 
-function liri_O() {
-    if (process.argv[3] = "movie-this") {
+// function liri_O() {
+if (process.argv[2] === "movie-this") {
+    
 
-        // Grab or assemble the movie name and store it in a variable called "movieName"
-        var movieName = process.argv[4];
-        // ...
-        // Then run a request with axios to the OMDB API with the movie specified
-        var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
-        // This line is just to help us debug against the actual URL.
-        console.log(queryUrl);
+    // Grab or assemble the movie name and store it in a variable called "movieName"
+    var movieName = process.argv[3];
+    // ...
+    // Then run a request with axios to the OMDB API with the movie specified
+    var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+    // This line is just to help us debug against the actual URL.
+    console.log(queryUrl);
 
-        axios
-            .get(queryUrl)
-            .then(function (response) {
-                // If the axios was successful...
-                // Then log the body from the site!
-                console.log(response.data);
-                //        * Title of the movie.
-                //        * Year the movie came out.
-                //        * IMDB Rating of the movie.
-                //        * Rotten Tomatoes Rating of the movie.
-                //        * Country where the movie was produced.
-                //        * Language of the movie.
-                //        * Plot of the movie.
-                //        * Actors in the movie.
-            })
-            .catch(function (error) {
-                if (error.response) {
-                    // The request was made and the server responded with a status code
-                    // that falls out of the range of 2xx
-                    console.log(error.response.data);
-                    console.log(error.response.status);
-                    console.log(error.response.headers);
-                } else if (error.request) {
-                    // The request was made but no response was received
-                    // `error.request` is an object that comes back with details pertaining to the error that occurred.
-                    console.log(error.request);
-                } else {
-                    // Something happened in setting up the request that triggered an Error
-                    console.log("Error", error.message);
-                }
-                console.log(error.config);
-            });
+    axios
+        .get(queryUrl)
+        .then(function (response) {
+            // If the axios was successful...
+            // Then log the body from the site!
+            console.log(response.data);
+            //        * Title of the movie.
+            //        * Year the movie came out.
+            //        * IMDB Rating of the movie.
+            //        * Rotten Tomatoes Rating of the movie.
+            //        * Country where the movie was produced.
+            //        * Language of the movie.
+            //        * Plot of the movie.
+            //        * Actors in the movie.
+        })
+        .catch(function (error) {
+            if (error.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+            } else if (error.request) {
+                // The request was made but no response was received
+                // `error.request` is an object that comes back with details pertaining to the error that occurred.
+                console.log(error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log("Error", error.message);
+            }
+            console.log(error.config);
+        });
 
-    } else if (process.argv[3] = "spotify-this-song") {
 
-        console.log("this is your song..." + process.argv[4]);
+} else if (process.argv[2] === "spotify-this-song") {
 
-    } else if (process.argv[3] = "concert-this") {
+    console.log("this is your song... " + process.argv[3]);
 
-        console.log("here is your concert..." + process.argv[4]);
+} else if (process.argv[2] === "concert-this") {
 
-    } else if (process.argv[3] = "do-what-it-says") {
+    console.log("here is your concert..." + process.argv[3]);
 
-        console.log("this is what you said..." + process.argv[4]);
+} else if (process.argv[2] === "do-what-it-says") {
 
-    };
-}
+    console.log("this is what you said..." + process.argv[3]);
+
+} else {
+    console.log("that was not a recognized command. try again!");
+};
+// }
 
 // ### What Each Command Should Do
 // 1. `node liri.js concert-this <artist/band name here>`
@@ -160,7 +166,7 @@ function liri_O() {
 
 // This block of code will create a file called "log.txt".
 // Next, we store the text given to us from the command line.
-var text = process.argv[2];
+var text = process.argv;
 
 // Next, we append the text into the "sample.txt" file.
 // If the file didn't exist, then it gets created on the fly.
