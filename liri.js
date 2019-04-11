@@ -12,8 +12,8 @@ require("dotenv").config();
 // Require Spotify
 var Spotify = require('node-spotify-api');
 
-//Require spotify keys
-var spotify = new Spotify(keys.spotify);
+// //Require spotify keys
+// var spotify = new Spotify(keys.spotify);
 var keys = require("./keys.js");
 
 
@@ -98,7 +98,7 @@ if (process.argv[2] === "movie-this") {
               return console.log('Error occurred: ' + err);
             }
            
-          console.log(data); 
+          console.log(data.tracks); 
           }
         );
         // .get(trackUrl)
