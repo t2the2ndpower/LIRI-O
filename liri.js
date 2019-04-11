@@ -98,10 +98,10 @@ if (process.argv[2] === "movie-this") {
             return console.log('Error occurred: ' + err);
         }
 
-       // console.log(data.artists);
-       // console.log(data.album);
-       // console.log(data.href);
-       console.log(data.tracks.items[0].album.artists[0].name);
+        // console.log(data.artists);
+        // console.log(data.album);
+        // console.log(data.href);
+        console.log(data.tracks.items[0].album.artists[0].name);
 
 
         //      * Artist(s)
@@ -112,63 +112,64 @@ if (process.argv[2] === "movie-this") {
     }
 
     );
-    
+
 
 
 } else if (process.argv[2] === "concert-this") {
 
- // Grab or assemble the movie name and store it in a variable called "movieName"
- var bandName = process.argv[3];
- // ...
- // Then run a request with axios to the OMDB API with the movie specified
- var bandUrl = "https://rest.bandsintown.com/artists/" + bandName + "/events?app_id=codingbootcamp";
- ;
- // This line is just to help us debug against the actual URL.
- console.log(movieUrl);
+    // Grab or assemble the movie name and store it in a variable called "movieName"
+    var bandName = process.argv[3];
+    // ...
+    // Then run a request with axios to the OMDB API with the movie specified
+    var bandUrl = "https://rest.bandsintown.com/artists/" + bandName + "/events?app_id=codingbootcamp";
+    ;
+    // This line is just to help us debug against the actual URL.
+    console.log(movieUrl);
 
- axios
-     .get(bandUrl)
-     .then(function (response) {
-         // If the axios was successful...
-         // Then log the body from the site!
-         console.log(response.data[0].description);
-         console.log(response.data[0].venue.city);
-         console.log(response.data[0].venue.name);
-         console.log(response.data[0].datetime);
+    axios
+        .get(bandUrl)
+        .then(function (response) {
+            // If the axios was successful...
+            // Then log the body from the site!
+            console.log(response.data[0].description);
+            console.log(response.data[0].venue.city);
+            console.log(response.data[0].venue.name);
+            console.log(response.data[0].datetime);
 
-
-    //      * Name of the venue
-    //      * Venue location
-    //      * Date of the Event (use moment to format this as "MM/DD/YYYY")
-
-
-     })
-     .catch(function (error) {
-         if (error.response) {
-             // The request was made and the server responded with a status code
-             // that falls out of the range of 2xx
-             console.log(error.response.data);
-             console.log(error.response.status);
-             console.log(error.response.headers);
-         } else if (error.request) {
-             // The request was made but no response was received
-             // `error.request` is an object that comes back with details pertaining to the error that occurred.
-             console.log(error.request);
-         } else {
-             // Something happened in setting up the request that triggered an Error
-             console.log("Error", error.message);
-         }
-         console.log(error.config);
-     });
+            // went to the link in a browser to see how the data was actually returning in the browser to see how to break it out        
+            // https://rest.bandsintown.com/artists/Res/events?app_id=codingbootcamp
+            //      * Name of the venue
+            //      * Venue location
+            //      * Date of the Event (use moment to format this as "MM/DD/YYYY")
 
 
-
+        })
+        .catch(function (error) {
+            if (error.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+            } else if (error.request) {
+                // The request was made but no response was received
+                // `error.request` is an object that comes back with details pertaining to the error that occurred.
+                console.log(error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log("Error", error.message);
+            }
+            console.log(error.config);
+        });
 
 
 
-   //   `"https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"`
-    
-   console.log("here is your concert..." + process.argv[3]);
+
+
+
+    //   `"https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"`
+
+    console.log("here is your concert..." + process.argv[3]);
 
     //      * Name of the venue
     //      * Venue location
@@ -190,9 +191,6 @@ if (process.argv[2] === "movie-this") {
 
 // ### What Each Command Should Do
 // 1. `node liri.js concert-this <artist/band name here>`
-//    * This will search the Bands in Town Artist Events API (`"https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"`) for an artist and render the following information about each event to the terminal:
-//      * Name of the venue
-//      * Venue location
 //      * Date of the Event (use moment to format this as "MM/DD/YYYY")
 
 // 2. `node liri.js spotify-this-song '<song name here>'`
@@ -210,17 +208,7 @@ if (process.argv[2] === "movie-this") {
 //    * Step Four: On the next screen, scroll down to where you see your client id and client secret. Copy these values down somewhere, you'll need them to use the Spotify API and the [node-spotify-api package](https://www.npmjs.com/package/node-spotify-api).
 
 // 3. `node liri.js movie-this '<movie name here>'`
-//    * This will output the following information to your terminal/bash window:
-//      ```
-//        * Title of the movie.
-//        * Year the movie came out.
-//        * IMDB Rating of the movie.
-//        * Rotten Tomatoes Rating of the movie.
-//        * Country where the movie was produced.
-//        * Language of the movie.
-//        * Plot of the movie.
-//        * Actors in the movie.
-//      ```
+//   
 //    * If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
 //      * If you haven't watched "Mr. Nobody," then you should: <http://www.imdb.com/title/tt0485947/>
 //      * It's on Netflix!
