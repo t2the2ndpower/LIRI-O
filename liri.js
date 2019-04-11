@@ -88,50 +88,61 @@ if (process.argv[2] === "movie-this") {
 
     //function spotify(inputs) {
 
-        var spotify = new Spotify({
-            id: keys.spotify.id,
-            secret: keys.spotify.secret
-          });
+    var spotify = new Spotify({
+        id: keys.spotify.id,
+        secret: keys.spotify.secret
+    });
 
-          spotify.search({ type: 'track', query: trackName }, function(err, data) {
-            if (err) {
-              return console.log('Error occurred: ' + err);
-            }
-           
-          console.log(data.tracks); 
-          }
-        );
-        // .get(trackUrl)
-        // .then(function (response) {
-        //     // If the axios was successful...
-        //     // Then log the body from the site!
-        //     console.log(response.data);
-        //     //        * Title of the movie.
-        //     //        * Year the movie came out.
-        //     //        * IMDB Rating of the movie.
-        //     //        * Rotten Tomatoes Rating of the movie.
-        //     //        * Country where the movie was produced.
-        //     //        * Language of the movie.
-        //     //        * Plot of the movie.
-        //     //        * Actors in the movie.
-        // })
-        // .catch(function (error) {
-        //     if (error.response) {
-        //         // The request was made and the server responded with a status code
-        //         // that falls out of the range of 2xx
-        //         console.log(error.response.data);
-        //         console.log(error.response.status);
-        //         console.log(error.response.headers);
-        //     } else if (error.request) {
-        //         // The request was made but no response was received
-        //         // `error.request` is an object that comes back with details pertaining to the error that occurred.
-        //         console.log(error.request);
-        //     } else {
-        //         // Something happened in setting up the request that triggered an Error
-        //         console.log("Error", error.message);
-        //     }
-        //     console.log(error.config);
-        // });
+    spotify.search({ type: 'track', query: trackName, limit: 1 }, function (err, data) {
+        if (err) {
+            return console.log('Error occurred: ' + err);
+        }
+
+       // console.log(data.artists);
+       // console.log(data.album);
+       // console.log(data.href);
+       console.log(data.tracks.items[0].album.artists[0].name);
+
+
+        //      * Artist(s)
+        //      * The song's name
+        //      * A preview link of the song from Spotify
+        //      * The album that the song is from
+
+    }
+
+    );
+    // .get(trackUrl)
+    // .then(function (response) {
+    //     // If the axios was successful...
+    //     // Then log the body from the site!
+    //     console.log(response.data);
+    //     //        * Title of the movie.
+    //     //        * Year the movie came out.
+    //     //        * IMDB Rating of the movie.
+    //     //        * Rotten Tomatoes Rating of the movie.
+    //     //        * Country where the movie was produced.
+    //     //        * Language of the movie.
+    //     //        * Plot of the movie.
+    //     //        * Actors in the movie.
+    // })
+    // .catch(function (error) {
+    //     if (error.response) {
+    //         // The request was made and the server responded with a status code
+    //         // that falls out of the range of 2xx
+    //         console.log(error.response.data);
+    //         console.log(error.response.status);
+    //         console.log(error.response.headers);
+    //     } else if (error.request) {
+    //         // The request was made but no response was received
+    //         // `error.request` is an object that comes back with details pertaining to the error that occurred.
+    //         console.log(error.request);
+    //     } else {
+    //         // Something happened in setting up the request that triggered an Error
+    //         console.log("Error", error.message);
+    //     }
+    //     console.log(error.config);
+    // });
 
 
 } else if (process.argv[2] === "concert-this") {
