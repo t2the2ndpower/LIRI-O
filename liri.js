@@ -112,42 +112,72 @@ if (process.argv[2] === "movie-this") {
     }
 
     );
-    // .get(trackUrl)
-    // .then(function (response) {
-    //     // If the axios was successful...
-    //     // Then log the body from the site!
-    //     console.log(response.data);
-    //     //        * Title of the movie.
-    //     //        * Year the movie came out.
-    //     //        * IMDB Rating of the movie.
-    //     //        * Rotten Tomatoes Rating of the movie.
-    //     //        * Country where the movie was produced.
-    //     //        * Language of the movie.
-    //     //        * Plot of the movie.
-    //     //        * Actors in the movie.
-    // })
-    // .catch(function (error) {
-    //     if (error.response) {
-    //         // The request was made and the server responded with a status code
-    //         // that falls out of the range of 2xx
-    //         console.log(error.response.data);
-    //         console.log(error.response.status);
-    //         console.log(error.response.headers);
-    //     } else if (error.request) {
-    //         // The request was made but no response was received
-    //         // `error.request` is an object that comes back with details pertaining to the error that occurred.
-    //         console.log(error.request);
-    //     } else {
-    //         // Something happened in setting up the request that triggered an Error
-    //         console.log("Error", error.message);
-    //     }
-    //     console.log(error.config);
-    // });
+    
 
 
 } else if (process.argv[2] === "concert-this") {
 
-    console.log("here is your concert..." + process.argv[3]);
+ // Grab or assemble the movie name and store it in a variable called "movieName"
+ var bandName = process.argv[3];
+ // ...
+ // Then run a request with axios to the OMDB API with the movie specified
+ var bandUrl = "https://rest.bandsintown.com/artists/" + bandName + "/events?app_id=codingbootcamp";
+ ;
+ // This line is just to help us debug against the actual URL.
+ console.log(movieUrl);
+
+ axios
+     .get(bandUrl)
+     .then(function (response) {
+         // If the axios was successful...
+         // Then log the body from the site!
+         console.log(response.data[0].description);
+         console.log(response.data[0].venue.city);
+         console.log(response.data[0].venue.name);
+         console.log(response.data[0].datetime);
+
+
+    //      * Name of the venue
+    //      * Venue location
+    //      * Date of the Event (use moment to format this as "MM/DD/YYYY")
+
+
+     })
+     .catch(function (error) {
+         if (error.response) {
+             // The request was made and the server responded with a status code
+             // that falls out of the range of 2xx
+             console.log(error.response.data);
+             console.log(error.response.status);
+             console.log(error.response.headers);
+         } else if (error.request) {
+             // The request was made but no response was received
+             // `error.request` is an object that comes back with details pertaining to the error that occurred.
+             console.log(error.request);
+         } else {
+             // Something happened in setting up the request that triggered an Error
+             console.log("Error", error.message);
+         }
+         console.log(error.config);
+     });
+
+
+
+
+
+
+   //   `"https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"`
+    
+   console.log("here is your concert..." + process.argv[3]);
+
+    //      * Name of the venue
+    //      * Venue location
+    //      * Date of the Event (use moment to format this as "MM/DD/YYYY")
+
+
+
+
+
 
 } else if (process.argv[2] === "do-what-it-says") {
 
