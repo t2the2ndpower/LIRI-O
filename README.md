@@ -3,7 +3,7 @@
 Have you ever just wanted to search for a movie, song, or concert from the command line?
 Well, now is your chance.
 
-#### Welcome to Liri-O!
+#### *Welcome to Liri-O!*
 A sparkling command line search bot!
 
 ## How to Use
@@ -16,5 +16,5 @@ A sparkling command line search bot!
 4. and then type in your search item of choice (with a preceeding space of course, this is afterall run using process.argv)
 5. **Voila** hit 'enter' and your results mystically appear!
 
-##Enjoy!
+## Enjoy!
 
