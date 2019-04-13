@@ -13,6 +13,7 @@ A sparkling command line search bot!
     1. movie-this
     2. concert-this
     3. spotify-this-song
+    4. do-what-it-says (for a random surprise!  No search item needed! *omit step 4 if choosing this option*)
 4. and then type in your search item of choice (with a preceeding space of course, this is afterall run using process.argv)
 5. **Voila** hit 'enter' and your results mystically appear!
 
