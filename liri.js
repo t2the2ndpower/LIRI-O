@@ -112,7 +112,19 @@ if (process.argv[2] === "movie-this") {
 
     spotify.search({ type: 'track', query: trackName, limit: 1 }, function (err, data) {
         if (err) {
+
+            console.log("  ");
+            console.log("~~~~~~~~~~~~~~~~~----@@^&^@@----~~~~~~~~~~~~~~~~~~~~");
+            console.log("  ");
+            console.log("Artists Name:  Ace of Base"); // artists name is working
+            console.log("Song Name:  The Sign" );  // song name is working 
+            console.log("Song URL:   https://open.spotify.com/track/0hrBpAOgrt8RXigk83LLNE?si=hbiF0Sm1Qj20Mw2xIe5psw"); // Song URL is working
+            console.log("Album Name:   The Sign");  // album name is working 
+            console.log("  ");
+
             return console.log('Error occurred: ' + err);
+            
+           // https://open.spotify.com/track/0hrBpAOgrt8RXigk83LLNE?si=hbiF0Sm1Qj20Mw2xIe5psw
         }
 
         // console.log(data.artists);
