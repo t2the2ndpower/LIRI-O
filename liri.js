@@ -16,11 +16,11 @@ var Spotify = require('node-spotify-api');
 // var spotify = new Spotify(keys.spotify);
 var keys = require("./keys.js");
 
-
-
 //File System Writer - Core node package for reading and writing files
 const fs = require("fs");
 
+// require Moment.js
+var moment = require('moment');
 
 
 // INSTRUCTIONS!!!
@@ -172,12 +172,11 @@ function pick(action, context) {
                 console.log("  ");
                 console.log("~~~~~~~~~~~~~~~~~----@@^&^@@----~~~~~~~~~~~~~~~~~~~~");
                 console.log("  ");
-
                 console.log("Concert Name:      " + response.data[0].description);
                 console.log("Concert City:      " + response.data[0].venue.city);
                 console.log("Concert Venue:     " + response.data[0].venue.name);
                 console.log("Concert Date:      " + response.data[0].datetime);
-
+                console.log(`Concert Date:      ${moment(response.data[0].datetime).format('MM/DD/YYYY')}`); //Thanks for the help JJ
                 console.log("  ");
 
 
