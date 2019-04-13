@@ -3,10 +3,10 @@
 Have you ever just wanted to search for a movie, song, or concert from the command line?
 Well, now is your chance.
 
-####Welcome to Liri-O!
+#### Welcome to Liri-O!
 A sparkling command line search bot!
 
-##How to Use
+## How to Use
 1. Open a command line
 2. Navigate to your **Liri-O** folder
 3. Type "Node liri.js " + one of the following commands
