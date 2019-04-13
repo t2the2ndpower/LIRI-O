@@ -3,6 +3,9 @@
 // console.log the process.argv just to see what is what
 // console.log(process.argv);
 
+
+//WORKING - Require All The Things!!!
+
 // Include the axios npm package - install this and all other node packages this folder first
 const axios = require("axios");
 
@@ -22,20 +25,15 @@ const fs = require("fs");
 // require Moment.js
 var moment = require('moment');
 
-
-// INSTRUCTIONS!!!
-// 9. Make it so liri.js can take in one of the following commands:
-//    * `concert-this`
-//    * `spotify-this-song`
-//    * `movie-this`
-//    * `do-what-it-says`
-console.log(process.argv[2])
+console.log(" you have selected to:  " + process.argv[2])
 console.log("__________________________________________________________________________")
 console.log("  ");
 
 
-// function liri_O() {
 function pick(action, context) {
+
+    //WORKING - I love IMDB's API it just makes sense!   
+
     if (action === "movie-this") {
 
 
@@ -56,7 +54,6 @@ function pick(action, context) {
                 console.log("  ");
                 console.log("~~~~~~~~~~~~~~~~~----@@^&^@@----~~~~~~~~~~~~~~~~~~~~");
                 console.log("  ");
-
                 console.log("Movie Title:        " + response.data.Title); // Movie Title working
                 console.log("Movie Year:         " + response.data.Year);  // Movie Year working
                 console.log("Movie IMDB Rating:  " + response.data.imdbRating);  // Movie IMDB Ratings working
@@ -67,15 +64,6 @@ function pick(action, context) {
                 console.log("Movie Actors:       " + response.data.Actors);  // Movie Actors working
                 console.log("Movie URL:          " + movieUrl);  // Movie URL working (just seemed like the right thing to add)
 
-
-                //        * Title of the movie.
-                //        * Year the movie came out.
-                //        * IMDB Rating of the movie.
-                //        * Rotten Tomatoes Rating of the movie.
-                //        * Country where the movie was produced.
-                //        * Language of the movie.
-                //        * Plot of the movie.
-                //        * Actors in the movie.
             })
             .catch(function (error) {
                 if (error.response) {
@@ -95,6 +83,9 @@ function pick(action, context) {
                 console.log(error.config);
             });
 
+
+
+        // WORKING - Spotify wasn't too bad AFTER I actually looked at the JSON in a browser window, their documentation is clear as mud            
 
     } else if (action === "spotify-this-song") {
 
@@ -152,6 +143,8 @@ function pick(action, context) {
 
 
 
+        // WORKING - Axios and bands in town, not fun, not fun AT ALL       
+
     } else if (action === "concert-this") {
 
         // Grab or assemble the movie name and store it in a variable called "movieName"
@@ -169,8 +162,6 @@ function pick(action, context) {
                 // If the axios was successful...
                 // Then log the body from the site!
 
-                
-
                 console.log("  ");
                 console.log("~~~~~~~~~~~~~~~~~----@@^&^@@----~~~~~~~~~~~~~~~~~~~~");
                 console.log("  ");
@@ -181,13 +172,8 @@ function pick(action, context) {
                 console.log(`Concert Date:      ${moment(response.data[0].datetime).format('MM/DD/YYYY')}`); //Thanks for the help JJ
                 console.log("  ");
 
-
                 // went to the link in a browser to see how the data was actually returning in the browser to see how to break it out        
                 // https://rest.bandsintown.com/artists/Res/events?app_id=codingbootcamp
-                //      * Name of the venue
-                //      * Venue location
-                //      * Date of the Event (use moment to format this as "MM/DD/YYYY")
-
 
             })
             .catch(function (error) {
@@ -208,23 +194,11 @@ function pick(action, context) {
                 console.log(error.config);
             });
 
-
-
-
-
-
-        //   `"https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"`
-
         console.log("here is your concert..." + context);
 
-        //      * Name of the venue
-        //      * Venue location
-        //      * Date of the Event (use moment to format this as "MM/DD/YYYY")
 
 
-
-
-
+        // WORKING - Hanna helped me with this one,  ended up wrapping my big 'ole if statement in a function and calling it at the end
 
     } else if (action === "do-what-it-says") {
 
@@ -250,7 +224,6 @@ function pick(action, context) {
 
         });
 
-
     } else {
         console.log("that was not a recognized command. try again!");
     }
@@ -258,41 +231,21 @@ function pick(action, context) {
 
 
 
-
-
-
-
-// ### Create a README.md
-// Add a `README.md` to your repository describing the project. Here are some resources for creating your `README.md`. Here are some resources to help you along the way:
-// * [About READMEs](https://help.github.com/articles/about-readmes/)
-// * [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
-// - - -
-
-// ### Add To Your Portfolio
-// After completing the homework please add the piece to your portfolio. Make sure to add a link to your updated portfolio in the comments section of your homework so the TAs can easily ensure you completed this step when they are grading the assignment. To receive an 'A' on any assignment, you must link to it from your portfolio.
-// - - -
-
-
-
-
-// This block of code will create a file called "log.txt".
-// Next, we store the text given to us from the command line.
+// WORKING! --- Grab the command and append it to the log.txt file
 var text = process.argv + "  ~  ";
 
-// Next, we append the text into the "sample.txt" file.
-// If the file didn't exist, then it gets created on the fly.
 fs.appendFile("log.txt", text, function (err) {
 
-    // If an error was experienced we will log it.
     if (err) {
         console.log(err);
     }
 
-    // If no error is experienced, we'll log the phrase "Content Added" to our node console.
     else {
         console.log("Content Added!");
     }
 
 });
+
+// WORKING - ONE CALL TO RULE THEM ALL!!!! (thanks Hanna!)
 
 pick(process.argv[2], process.argv[3]);
