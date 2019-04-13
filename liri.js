@@ -31,6 +31,8 @@ const fs = require("fs");
 //    * `do-what-it-says`
 console.log(process.argv[2])
 console.log("__________________________________________________________________________")
+console.log("  ");
+
 
 // function liri_O() {
 if (process.argv[2] === "movie-this") {
@@ -42,14 +44,29 @@ if (process.argv[2] === "movie-this") {
     // Then run a request with axios to the OMDB API with the movie specified
     var movieUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
     // This line is just to help us debug against the actual URL.
-    console.log(movieUrl);
+    //console.log(movieUrl);
 
     axios
         .get(movieUrl)
         .then(function (response) {
             // If the axios was successful...
             // Then log the body from the site!
-            console.log(response.data);
+
+            console.log("  ");
+            console.log("~~~~~~~~~~~~~~~~~----@@^&^@@----~~~~~~~~~~~~~~~~~~~~");
+            console.log("  ");
+
+            console.log("Movie Title:        " + response.data.Title); // Movie Title working
+            console.log("Movie Year:         " + response.data.Year);  // Movie Year working
+            console.log("Movie IMDB Rating:  " + response.data.imdbRating);  // Movie IMDB Ratings working
+            console.log("Movie RTomatoes:    " + response.data.Ratings[1].Value);  // Movie RT Ratings working
+            console.log("Movie Country:      " + response.data.Country);  // Movie Country working
+            console.log("Movie Language:     " + response.data.Language);  // Movie Language working
+            console.log("Movie Plot:         " + response.data.Plot);  // Movie Plot working
+            console.log("Movie Actors:       " + response.data.Actors);  // Movie Actors working
+            console.log("Movie URL:          " + movieUrl);  // Movie URL working (just seemed like the right thing to add)
+
+
             //        * Title of the movie.
             //        * Year the movie came out.
             //        * IMDB Rating of the movie.
@@ -101,7 +118,14 @@ if (process.argv[2] === "movie-this") {
         // console.log(data.artists);
         // console.log(data.album);
         // console.log(data.href);
-        console.log(data.tracks.items[0].album.artists[0].name);
+        console.log("  ");
+        console.log("~~~~~~~~~~~~~~~~~----@@^&^@@----~~~~~~~~~~~~~~~~~~~~");
+        console.log("  ");
+        console.log("Artists Name: " + data.tracks.items[0].album.artists[0].name); // artists name is working
+        console.log("Song Name: " + data.tracks.items[0].name);  // song name is working 
+        console.log("Song URL: " + data.tracks.items[0].album.href); // Song URL is working
+        console.log("Album Name: " + data.tracks.items[0].album.name);  // album name is working 
+        // console.log(data.tracks.items[0].album.artists[0].name);
 
 
         //      * Artist(s)
@@ -131,6 +155,11 @@ if (process.argv[2] === "movie-this") {
         .then(function (response) {
             // If the axios was successful...
             // Then log the body from the site!
+            
+            console.log("  ");
+            console.log("~~~~~~~~~~~~~~~~~----@@^&^@@----~~~~~~~~~~~~~~~~~~~~");
+            console.log("  ");
+
             console.log(response.data[0].description);
             console.log(response.data[0].venue.city);
             console.log(response.data[0].venue.name);
