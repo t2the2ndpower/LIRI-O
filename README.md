@@ -5,6 +5,7 @@ Well, now is your chance.
 
 #### *Welcome to Liri-O!*
 A sparkling command line search bot!
+href: https://github.com/t2the2ndpower/LIRI-O
 
 ## How to Use
 1. Open a command line
