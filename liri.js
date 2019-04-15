@@ -231,10 +231,12 @@ function pick(action, context) {
 
 
 
-// WORKING! --- Grab the command and append it to the log.txt file
-var text = process.argv + "  ~  ";
+// WORKING! --- Grab the process.argv command and append it to the log.txt file
+// update Stephan introduced me to the back tick which supports multi line text!!! BET.
+var a = 'hello world'
+var text = `I just wanted to say ${a}`;
 
-fs.appendFile("log.txt", text, function (err) {
+fs.appendFile("log.txt", text, function (err) { 
 
     if (err) {
         console.log(err);
