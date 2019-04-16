@@ -64,6 +64,48 @@ function pick(action, context) {
                 console.log("Movie Actors:       " + response.data.Actors);  // Movie Actors working
                 console.log("Movie URL:          " + movieUrl);  // Movie URL working (just seemed like the right thing to add)
 
+                // add to log.txt
+
+                var log1 = " ";
+                var log2 = "~~~~~~~~~~~~~~~~~----@@^&^@@----~~~~~~~~~~~~~~~~~~~~";
+                var log3 = " ";
+                var log4 = "Movie Title:        " + response.data.Title;
+                var log5 = "Movie Year:         " + response.data.Year;
+                var log6 = "Movie IMDB Rating:  " + response.data.imdbRating;
+                var log7 = "Movie RTomatoes:    " + response.data.Ratings[1].Value;
+                var log8 = "Movie Country:      " + response.data.Country;
+                var log9 = "Movie Language:     " + response.data.Language;
+                var log10 = "Movie Plot:         " + response.data.Plot;
+                var log11 = "Movie Actors:       " + response.data.Actors;
+                var log12 = "Movie URL:          " + movieUrl;
+
+                fs.appendFile("log.txt",
+                    `~~~~
+
+                movie-this
+                 ${log1}
+                 ${log2}
+                 ${log3}
+                 ${log4}
+                 ${log5}
+                 ${log6}
+                 ${log7}
+                 ${log8}
+                 ${log9}
+                 ${log10}
+                 ${log11}
+                 ${log12}
+
+                 ~~~~`,
+                    function (err) {
+                        if (err) {
+                            console.log(err);
+                        } else {
+                            console.log("Content Added!");
+                        }
+                    })
+
+
             })
             .catch(function (error) {
                 if (error.response) {
@@ -119,9 +161,6 @@ function pick(action, context) {
                 // https://open.spotify.com/track/0hrBpAOgrt8RXigk83LLNE?si=hbiF0Sm1Qj20Mw2xIe5psw
             }
 
-            // console.log(data.artists);
-            // console.log(data.album);
-            // console.log(data.href);
             console.log("  ");
             console.log("~~~~~~~~~~~~~~~~~----@@^&^@@----~~~~~~~~~~~~~~~~~~~~");
             console.log("  ");
@@ -129,13 +168,39 @@ function pick(action, context) {
             console.log("Song Name: " + data.tracks.items[0].name);  // song name is working 
             console.log("Song URL: " + data.tracks.items[0].album.href); // Song URL is working
             console.log("Album Name: " + data.tracks.items[0].album.name);  // album name is working 
-            // console.log(data.tracks.items[0].album.artists[0].name);
 
+            // add Spotify info to log.txt
 
-            //      * Artist(s)
-            //      * The song's name
-            //      * A preview link of the song from Spotify
-            //      * The album that the song is from
+            var log1 = " ";
+            var log2 = "~~~~~~~~~~~~~~~~~----@@^&^@@----~~~~~~~~~~~~~~~~~~~~";
+            var log3 = " ";
+            var log4 = "Artists Name: " + data.tracks.items[0].album.artists[0].name;
+            var log5 = "Song Name: " + data.tracks.items[0].name
+            var log6 = "Song URL: " + data.tracks.items[0].album.href
+            var log7 = "Album Name: " + data.tracks.items[0].album.name
+            var log8 = "  "
+
+            fs.appendFile("log.txt",
+                `~~~~
+                spotify-this-song
+
+                 ${log1}
+                 ${log2}
+                 ${log3}
+                 ${log4}
+                 ${log5}
+                 ${log6}
+                 ${log7}
+                 ${log8}
+
+                 ~~~~`,
+                function (err) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        console.log("Content Added!");
+                    }
+                })
 
         }
 
@@ -174,6 +239,38 @@ function pick(action, context) {
 
                 // went to the link in a browser to see how the data was actually returning in the browser to see how to break it out        
                 // https://rest.bandsintown.com/artists/Res/events?app_id=codingbootcamp
+
+                var log1 = " ";
+                var log2 = "~~~~~~~~~~~~~~~~~----@@^&^@@----~~~~~~~~~~~~~~~~~~~~";
+                var log3 = " ";
+                var log4 = "Concert Name:      " + response.data[0].description;
+                var log5 = "Concert City:      " + response.data[0].venue.city
+                var log6 = "Concert Venue:     " + response.data[0].venue.name
+                var log7 = "Concert Date:      " + response.data[0].datetime
+                var log8 = "Concert Date:      " + response.data[0].datetime
+                var log9 = "  "
+
+                fs.appendFile("log.txt",
+                    `~~~~
+                concert-this
+                 ${log1}
+                 ${log2}
+                 ${log3}
+                 ${log4}
+                 ${log5}
+                 ${log6}
+                 ${log7}
+                 ${log8}
+                 ${log9}
+
+                 ~~~~`,
+                    function (err) {
+                        if (err) {
+                            console.log(err);
+                        } else {
+                            console.log("Content Added!");
+                        }
+                    })
 
             })
             .catch(function (error) {
@@ -233,20 +330,20 @@ function pick(action, context) {
 
 // WORKING! --- Grab the process.argv command and append it to the log.txt file
 // update Stephan introduced me to the back tick which supports multi line text!!! BET.
-var a = 'hello world'
-var text = `I just wanted to say ${a}`;
+// var a = 'hello world'
+// var text = `I just wanted to say ${a}`;
 
-fs.appendFile("log.txt", text, function (err) { 
+// fs.appendFile("log.txt", text, function (err) {
 
-    if (err) {
-        console.log(err);
-    }
+//     if (err) {
+//         console.log(err);
+//     }
 
-    else {
-        console.log("Content Added!");
-    }
+//     else {
+//         console.log("Content Added!");
+//     }
 
-});
+// });
 
 // WORKING - ONE CALL TO RULE THEM ALL!!!! (thanks Hanna!)
 

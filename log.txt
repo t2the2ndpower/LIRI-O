@@ -1,1 +1,51 @@
-[object Object]/usr/local/Cellar/node/11.8.0/bin/node,/Users/tthomas/GTBootcamp/bc/repos/LIRI-O/liri.js,concert-this,res/usr/local/Cellar/node/11.8.0/bin/node,/Users/tthomas/GTBootcamp/bc/repos/LIRI-O/liri.js,concert-this,res, /usr/local/Cellar/node/11.8.0/bin/node,/Users/tthomas/GTBootcamp/bc/repos/LIRI-O/liri.js,concert-this,res  ~  /usr/local/Cellar/node/11.8.0/bin/node,/Users/tthomas/GTBootcamp/bc/repos/LIRI-O/liri.js,concert-this,res  ~  /usr/local/Cellar/node/11.8.0/bin/node,/Users/tthomas/GTBootcamp/bc/repos/LIRI-O/liri.js,concert-this,squarepusher  ~  /usr/local/Cellar/node/11.8.0/bin/node,/Users/tthomas/GTBootcamp/bc/repos/LIRI-O/liri.js,do-what-it-says  ~  
+[object Object]/usr/local/Cellar/node/11.8.0/bin/node,/Users/tthomas/GTBootcamp/bc/repos/LIRI-O/liri.js,concert-this,res/usr/local/Cellar/node/11.8.0/bin/node,/Users/tthomas/GTBootcamp/bc/repos/LIRI-O/liri.js,concert-this,res, /usr/local/Cellar/node/11.8.0/bin/node,/Users/tthomas/GTBootcamp/bc/repos/LIRI-O/liri.js,concert-this,res  ~  /usr/local/Cellar/node/11.8.0/bin/node,/Users/tthomas/GTBootcamp/bc/repos/LIRI-O/liri.js,concert-this,res  ~  /usr/local/Cellar/node/11.8.0/bin/node,/Users/tthomas/GTBootcamp/bc/repos/LIRI-O/liri.js,concert-this,squarepusher  ~  /usr/local/Cellar/node/11.8.0/bin/node,/Users/tthomas/GTBootcamp/bc/repos/LIRI-O/liri.js,do-what-it-says  ~  I just wanted to say hello worldI just wanted to say hello world~~~~
+                  
+                 ~~~~~~~~~~~~~~~~~----@@^&^@@----~~~~~~~~~~~~~~~~~~~~
+                  
+                 Concert Name:      Res - Rockwood Stage 2
+                 Concert City:      New York
+                 Concert Venue:     Rockwood Music Hall
+                 Concert Date:      2019-05-16T23:00:00
+                 Concert Date:      2019-05-16T23:00:00
+                   
+
+                 ~~~~I just wanted to say hello world~~~~
+                movie-this
+                  
+                 ~~~~~~~~~~~~~~~~~----@@^&^@@----~~~~~~~~~~~~~~~~~~~~
+                  
+                 Movie Title:        Interstellar
+                 Movie Year:         2014
+                 Movie IMDB Rating:  8.6
+                 Movie RTomatoes:    72%
+                 Movie Country:      USA, UK, Canada
+                 Movie Language:     English
+                 Movie Plot:         A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.
+                 Movie Actors:       Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow
+                 Movie URL:          http://www.omdbapi.com/?t=interstellar&y=&plot=short&apikey=trilogy
+
+                 ~~~~I just wanted to say hello world~~~~
+                spotify-this-song
+
+                  
+                 ~~~~~~~~~~~~~~~~~----@@^&^@@----~~~~~~~~~~~~~~~~~~~~
+                  
+                 Artists Name: Stevie Wonder
+                 Song Name: Overjoyed
+                 Song URL: https://api.spotify.com/v1/albums/1nLKZqTGA48v3I8dNFkvQt
+                 Album Name: In Square Circle
+                   
+
+                 ~~~~~~~~
+                spotify-this-song
+
+                  
+                 ~~~~~~~~~~~~~~~~~----@@^&^@@----~~~~~~~~~~~~~~~~~~~~
+                  
+                 Artists Name: Natalie Cole
+                 Song Name: This Will Be (An Everlasting Love)
+                 Song URL: https://api.spotify.com/v1/albums/1eTNYVS06XwHjwMssf6Fsx
+                 Album Name: Inseparable
+                   
+
+                 ~~~~
