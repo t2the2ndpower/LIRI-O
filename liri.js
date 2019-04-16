@@ -182,8 +182,8 @@ function pick(action, context) {
 
             fs.appendFile("log.txt",
                 `~~~~
-                spotify-this-song
 
+                spotify-this-song
                  ${log1}
                  ${log2}
                  ${log3}
@@ -252,6 +252,7 @@ function pick(action, context) {
 
                 fs.appendFile("log.txt",
                     `~~~~
+                    
                 concert-this
                  ${log1}
                  ${log2}
