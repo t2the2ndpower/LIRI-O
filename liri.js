@@ -36,6 +36,7 @@ function pick(action, context) {
 
     if (action === "movie-this") {
 
+        console.log("this is your movie... " + context);
 
         // Grab or assemble the movie name and store it in a variable called "movieName"
         var movieName = context;
@@ -212,6 +213,8 @@ function pick(action, context) {
 
     } else if (action === "concert-this") {
 
+        console.log("this is your concert... " + context);
+
         // Grab or assemble the movie name and store it in a variable called "movieName"
         var bandName = context;
         // ...
@@ -219,7 +222,7 @@ function pick(action, context) {
         var bandUrl = "https://rest.bandsintown.com/artists/" + bandName + "/events?app_id=codingbootcamp";
         ;
         // This line is just to help us debug against the actual URL.
-        console.log(movieUrl);
+        //console.log(movieUrl);
 
         axios
             .get(bandUrl)
@@ -252,7 +255,7 @@ function pick(action, context) {
 
                 fs.appendFile("log.txt",
                     `~~~~
-                    
+
                 concert-this
                  ${log1}
                  ${log2}
@@ -292,7 +295,7 @@ function pick(action, context) {
                 console.log(error.config);
             });
 
-        console.log("here is your concert..." + context);
+        //console.log("here is your concert..." + context);
 
 
 

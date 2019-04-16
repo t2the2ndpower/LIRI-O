@@ -48,4 +48,72 @@
                  Album Name: Inseparable
                    
 
+                 ~~~~~~~~
+
+                movie-this
+                  
+                 ~~~~~~~~~~~~~~~~~----@@^&^@@----~~~~~~~~~~~~~~~~~~~~
+                  
+                 Movie Title:        The 'Burbs
+                 Movie Year:         1989
+                 Movie IMDB Rating:  6.9
+                 Movie RTomatoes:    51%
+                 Movie Country:      USA
+                 Movie Language:     English
+                 Movie Plot:         An overstressed suburbanite and his fellow neighbors are convinced that the new family on the block are part of a murderous Satanic cult.
+                 Movie Actors:       Tom Hanks, Bruce Dern, Carrie Fisher, Rick Ducommun
+                 Movie URL:          http://www.omdbapi.com/?t=Burbs&y=&plot=short&apikey=trilogy
+
+                 ~~~~~~~~
+
+                concert-this
+                  
+                 ~~~~~~~~~~~~~~~~~----@@^&^@@----~~~~~~~~~~~~~~~~~~~~
+                  
+                 Concert Name:      Festival of Disruption ft. Squarepusher (DJ Set), Mercury Rev, Wye Oak, The Messthetics
+                 Concert City:      Brooklyn
+                 Concert Venue:     Brooklyn Steel
+                 Concert Date:      2019-05-17T20:00:00
+                 Concert Date:      2019-05-17T20:00:00
+                   
+
+                 ~~~~~~~~
+
+                concert-this
+                  
+                 ~~~~~~~~~~~~~~~~~----@@^&^@@----~~~~~~~~~~~~~~~~~~~~
+                  
+                 Concert Name:      Res - Rockwood Stage 2
+                 Concert City:      New York
+                 Concert Venue:     Rockwood Music Hall
+                 Concert Date:      2019-05-16T23:00:00
+                 Concert Date:      2019-05-16T23:00:00
+                   
+
+                 ~~~~~~~~
+
+                concert-this
+                  
+                 ~~~~~~~~~~~~~~~~~----@@^&^@@----~~~~~~~~~~~~~~~~~~~~
+                  
+                 Concert Name:      
+                 Concert City:      Aalborg
+                 Concert Venue:     Mollenpark
+                 Concert Date:      2019-06-01T19:00:44
+                 Concert Date:      2019-06-01T19:00:44
+                   
+
+                 ~~~~~~~~
+
+                concert-this
+                  
+                 ~~~~~~~~~~~~~~~~~----@@^&^@@----~~~~~~~~~~~~~~~~~~~~
+                  
+                 Concert Name:      DOORS: 7:00 PM SHOW: 8:00 PM LINEUP: KEITH SWEAT ISLEY BROTHERS GUY FEATURING TEDDY RILEY GINUWINE JON B ALL SUPPORT ACTS ARE SUBJECT TO CHANGE WITHOUT NOTICE
+                 Concert City:      Ontario
+                 Concert Venue:     Citizens Business Bank Arena
+                 Concert Date:      2019-05-11T20:00:00
+                 Concert Date:      2019-05-11T20:00:00
+                   
+
                  ~~~~
